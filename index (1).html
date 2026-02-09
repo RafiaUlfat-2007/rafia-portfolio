@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RAFIAulfat_Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0b0b0f;
+            --card: #0f1720;
+            --muted: #9aa4b2;
+            --accent: #6ee7b7;
+            --accent-2: #60a5fa;
+        }
+
+        html,
+        body {
+            height: 100%;
+            background: linear-gradient(180deg, var(--bg), #07070a 120%);
+            color: #eef2f7;
+            font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+            scroll-behavior: smooth;
+        }
+
+        .navbar {
+            background: rgba(10, 10, 12, .6) !important;
+            backdrop-filter: blur(6px);
+        }
+        
+        .navbar-toggler {
+            border: 1px solid white;
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            letter-spacing: .4px;
+        }
+
+        .hero {
+            padding: 4.5rem 0;
+        }
+
+        .profile-img {
+            width: 160px;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 6px solid rgba(255, 255, 255, .06);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, .6);
+        }
+
+        .section-title {
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        .card.project-card {
+            background: linear-gradient(180deg, rgba(255, 255, 255, .02), rgba(255, 255, 255, .01));
+            border: none;
+        }
+
+        .project-card img {
+            height: 180px;
+            object-fit: cover;
+            border-top-left-radius: .5rem;
+            border-top-right-radius: .5rem;
+        }
+
+        .skill-badge {
+            min-width: 110px;
+            display: inline-block;
+            margin-right: .4rem;
+            margin-bottom: .4rem;
+        }
+
+        footer {
+            padding: 2rem 0;
+            color: var(--muted);
+            background: transparent;
+            border-top: 1px solid rgba(255, 255, 255, .03);
+        }
+
+        /* small animations */
+        .fade-up {
+            transform: translateY(10px);
+            opacity: 0;
+            transition: all .6s ease;
+        }
+
+        .fade-up.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .progress .progress-bar {
+            transition: width 1s ease;
+        }
+
+        @media (max-width:575px) {
+            .profile-img {
+                width: 120px;
+                height: 120px;
+            }
+        }
+        
+        #hvr>a:hover{
+            color:#17a2b8;
+            font-weight: bold;
+        }
+        
+
+        @media (max-width: 991px) {
+            .navbar-nav {
+                background: rgba(10,10,12,0.95);
+                padding: 10px;
+                border-radius: 10px;
+                margin-top: 10px;
+                text-align: center;
+                color: #17a2b8;
+         }
+
+            .navbar-nav .nav-link {
+                padding: 12px;
+                font-size: 16px;
+          }
+
+            .navbar-brand {
+                font-size: 18px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 3rem 0;
+            }
+
+            .display-6 {
+                font-size: 2rem;
+            }
+
+            .lead {
+                font-size: 1rem;
+            }
+
+            .btn {
+                font-size: 0.9rem;
+                padding: 0.5rem 1rem;
+            }
+
+            .navbar-brand {
+                font-size: 16px;
+            }
+
+            .navbar-nav .nav-link {
+                font-size: 14px;
+                padding: 10px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero {
+                padding: 2rem 0;
+            }
+
+            .display-6 {
+                font-size: 1.8rem;
+            }
+
+            .lead {
+                font-size: 0.95rem;
+            }
+
+            .profile-img {
+                width: 100px;
+                height: 100px;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .card-title {
+                font-size: 1.1rem;
+            }
+
+            .btn {
+                font-size: 0.85rem;
+                padding: 0.4rem 0.8rem;
+            }
+
+            .navbar-brand {
+                font-size: 14px;
+            }
+
+            .navbar-nav .nav-link {
+                font-size: 13px;
+                padding: 8px;
+            }
+
+            footer .d-flex {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            footer .small {
+                margin-bottom: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 1.5rem 0;
+            }
+
+            .display-6 {
+                font-size: 1.6rem;
+            }
+
+            .lead {
+                font-size: 0.9rem;
+            }
+
+            .profile-img {
+                width: 90px;
+                height: 90px;
+            }
+
+            .section-title {
+                font-size: 1.4rem;
+            }
+
+            .card-title {
+                font-size: 1rem;
+            }
+
+            .skill-badge {
+                min-width: 90px;
+                font-size: 0.8rem;
+            }
+
+            .btn {
+                font-size: 0.8rem;
+                padding: 0.3rem 0.6rem;
+            }
+
+            .navbar-brand {
+                font-size: 12px;
+            }
+
+            .navbar-nav .nav-link {
+                font-size: 12px;
+                padding: 6px;
+            }
+        }
+
+       .navbar-toggler {
+            border: none;
+            background: transparent !important;
+        }
+
+        .navbar-toggler:focus {
+            box-shadow: none;
+        }
+
+
+</style>
+</head>
+
+<body data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="80" tabindex="0">
+   
+    <nav id="mainNav" class="navbar navbar-expand-lg navbar-dark sticky-top"> 
+        <div class="container">
+            <a class="navbar-brand" href="#">RafiaUlfat<span class="text-info">Portfolio</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navCollapse">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li id="hvr" class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li id="hvr" class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li id="hvr" class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+                    <li id="hvr" class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                    <li id="hvr" class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                    <li id="hvr" class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+
+        <!-- Home / Hero -->
+        <section id="home" class="hero text-center">
+            <div class="row align-items-center">
+                <div class="col-md-5 text-md-center mb-4 mb-md-0">
+                    <img src="CODE_GIRL.jpg"
+                        alt="Profile" class="profile-img mb-3">
+                </div>
+                <div class="col-md-7 text-md-start">
+                    <h1 class="display-6 mb-2 text-info"><span>👋 Hello!</span> I'm Rafia Ulfat</h1>
+                    <p class="lead text">“I am a passionate frontend developer and UI enthusiast who builds accessible and responsive web experiences. I focus on clean code, user-centered design, and continuous learning.”<design class=""></design>
+                  
+                    <div class="mt-3 d-flex flex-column flex-sm-row gap-2">
+                        <a href="#projects" class="btn btn-success"><i class="fa-solid fa-rocket me-1"></i> View
+                            Projects</a>
+                        <a href="#contact" class="btn btn-outline-light"><i class="fa-solid fa-envelope me-1"></i>
+                            Get in touch</a>
+                    </div>
+                    <div class="mt-4">
+                        <a class=" me-3" href="http://www.linkedin.com/in/ʀᴀꜰɪᴀ-ᴜʟꜰᴀᴛ-a5b25538b" target="_blank" rel="noopener"><i
+                                class="fa-brands fa-linkedin fa-lg  text-info"></i></a>
+                        <a class=" me-3" href="https://github.com/" target="_blank" rel="noopener"><i
+                                class="fa-brands fa-github fa-lg text-light"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <hr class="my-5">
+
+        <!-- About -->
+        <section id="about" class="mb-5">
+            <h2 class="section-title  text-info">About</h2>
+            <p>I am a Frontend Developer with a passion for crafting intuitive UI and pleasant user experiences.
+                My interests include accessibility, performance optimization, and modern JavaScript frameworks.</p>
+            <div class="row mt-4">
+                <div class="col-md-6">
+                    <h6 class="mb-3 text-success">Journey</h6>
+                    <ul class="timeline list-unstyled">
+                         <li class="mb-3"><strong>2024</strong> — Successfully completed 10th-grade education.</li>
+                        <li class="mb-3 "><strong>2025</strong> — Started learning web development (HTML, CSS, JS).</li>
+                        <li class="mb-3"><strong>2026</strong> — I will take my 12th-grade exam this year.</li>
+                        <p class="text-center">&</p>
+                        <li class="mb-3"><strong>2026</strong> — Built freelance projects and improved UI/UX skills.</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <h6 class="mb-3 text-success">Interests & Goals</h6>
+                    <p>Design systems, accessible components, contributing to open-source, and growing as a full-stack developer.</p>
+                </div>
+            </div>
+        </section>
+
+        <hr class="my-5">
+
+        <!-- Education -->
+        <section id="education" class="mb-5">
+            <h2 class="section-title text-info">Education</h2>
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title mb-1">Intermedicate At Government College</h5>
+                            <p class="text-muted mb-1">GOVERNMENT GIRLS DEGREE COLLEGE BUFFERZONE — <br>2024 — 2026</p>
+                            <p class="mb-0">INSHALLAH I will complete my 12 standard in this year.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title mb-1">Web DEVELOPER</h5>
+                            <p class="text-muted mb-1">Enrolled In Computer Course — 2025</p>
+                            <p class="mb-0">Topics: HTML, XML, JAVASCRIPT, BOOTSTRAP, JQUERY & SEO.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr class="my-5">
+
+        <!-- Skills -->
+        <section id="skills" class="mb-5">
+            <h2 class="section-title text-info">Skills</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <h5 class="text-light">Programming Languages</h5>
+                    <div class="mb-2"><span class="skill-badge badge bg-light text-dark">JavaScript</span>
+                        <div class="progress mt-1" style="height:8px">
+                            <div class="progress-bar bg-primary" data-width="85%" style="width:0%"></div>
+                        </div>
+                    </div>
+                    <div class="mb-2"><span class="skill-badge badge bg-light text-dark">Json</span>
+                        <div class="progress mt-1" style="height:8px">
+                            <div class="progress-bar bg-info" data-width="70%" style="width:0%"></div>
+                        </div>
+                    </div>
+                    <div class="mb-2"><span class="skill-badge badge bg-light text-dark">HTML & CSS</span>
+                        <div class="progress mt-1" style="height:8px">
+                            <div class="progress-bar bg-success" data-width="90%" style="width:0%"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h5  class="text-light">Tools & Frameworks</h5>
+                    <div class="mb-2"><span class="skill-badge badge bg-light text-dark">React</span>
+                        <div class="progress mt-1" style="height:8px">
+                            <div class="progress-bar bg-success" data-width="80%" style="width:0%"></div>
+                        </div>
+                    </div>
+                    <div class="mb-2"><span class="skill-badge badge bg-light text-dark">Bootstrap</span>
+                        <div class="progress mt-1" style="height:8px">
+                            <div class="progress-bar bg-warning" data-width="85%" style="width:0%"></div>
+                        </div>
+                    </div>
+                    <div class="mb-2"><span class="skill-badge badge bg-light text-dark">Git</span>
+                        <div class="progress mt-1" style="height:8px">
+                            <div class="progress-bar bg-secondary" data-width="75%" style="width:0%"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h4 class="text-light">Languages & Soft Skills</h4>
+                    <p class="mb-1"><strong>English:</strong> Professional</p>
+                    <p class="mb-1"><strong>Communication:</strong> Strong</p>
+                    <p class="mb-0"><strong>Collaboration:</strong> Team player</p>
+                </div>
+            </div>
+        </section>
+
+        <hr class="my-5">
+
+        <!-- Projects -->
+        <section id="projects" class="mb-5">
+            <h2 class="section-title text-info">Projects</h2>
+            <div class="row g-3">
+                <!-- Project 1 -->
+                <div class="col-lg-4 col-md-6 col-12">
+                    <div class="card project-card shadow-sm fade-up">
+                        <img src="https://media.istockphoto.com/id/1854541760/photo/beautiful-young-woman-receives-a-stylish-hairdo.jpg?s=612x612&w=0&k=20&c=w6YizRKuVnAKNJ7q1KUbuKe_WrEU7ptWN7Uv_sJu5p4="
+                            class="card-img-top" alt="Project 1">
+                        <div class="card-body">
+                            <h4 class="card-title text-light">1- SIMPLON BEAUTY CARE</h4>
+                            <p class="text-light mb-2">Expert beauty care for ladies, boosting confidence and natural beauty.</p>
+                            <div class="mb-2">
+                                <span class="badge bg-dark text-light me-1">HTML</span>
+                                <span class="badge bg-dark text-light me-1">CSS</span>
+                                <span class="badge bg-dark text-light">JAVASCRIPT</span>
+                            </div>
+                            <a href="https://github.com/RafiaUlfat-2007/beauty_simplon_care__website.git" class="stretched-link text-decoration-none" target="_blank" rel="noopener">Live /</a>
+                            <a href="https://github.com/RafiaUlfat-2007/beauty_simplon_care__website" class="stretched-link text-decoration-none" target="_blank" rel="noopener">Repo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="col-lg-4 col-md-6 col-12">
+                    <div class="card project-card shadow-sm fade-up">
+                        <img src="https://images.squarespace-cdn.com/content/v1/5c53611a0cf57d7ce300be61/e70e1d51-755b-4a25-823e-1ec2c3c1b6c4/CANDELA%2BLA%2BBREA.jpg"
+                            class="card-img-top" alt="Project 2">
+                        <div class="card-body">
+                            <h4 class="card-title text-light">2- Envato Market</h4>
+                            <p class="text-light mb-2">We ensure quality care and the right venue to make your event smooth and special.</p>
+                            <div class="mb-2">
+                                <span class="badge bg-dark text-light me-1">HTML</span>
+                                <span class="badge bg-dark text-light me-1">CSS</span>
+                                <span class="badge bg-dark text-light">JAVASCRIPT</span>
+                            </div>
+                            <a href="https://github.com/RafiaUlfat-2007/envato_market__website.git" class="stretched-link text-decoration-none" target="_blank" rel="noopener">Live /</a>
+                            <a href="https://github.com/RafiaUlfat-2007/envato_market__website" class="stretched-link text-decoration-none" target="_blank" rel="noopener">Repo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="col-lg-4 col-md-6 col-12">
+                    <div class="card project-card shadow-sm fade-up">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFOxpHAhreujNVHSVhwc3Kq6K1ODwSf24SQQ&s"
+                            class="card-img-top" alt="Project 3">
+                        <div class="card-body">
+                            <h5 class="card-title text-light">Performance Audit</h5>
+                            <p class="mb-2 text-light">Study Helper is your ultimate companion for smarter learning. It provides personalized study plans, and motivational tips.</p>
+                            <div class="mb-2">
+                                <span class="badge bg-dark text-light me-1">HTML</span>
+                                <span class="badge bg-dark text-light me-1">CSS</span>
+                                <span class="badge bg-dark text-light">JAVASCRIPT</span>
+                            </div>
+                            <a href="https://github.com/RafiaUlfat-2007/study_helper__website.git" class="stretched-link text-decoration-none" target="_blank" rel="noopener">Live /</a>
+                            <a href="https://github.com/RafiaUlfat-2007/study_helper__website" class="stretched-link text-decoration-none" target="_blank" rel="noopener">Repo</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr class="my-5">
+
+        <!-- Contact -->
+        <section id="contact" class="mb-5">
+            <h2 class="section-title text-info">Contact</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <p> Have a project in mind or want to collaborate? I’m a passionate Frontend Developer who loves building responsive and user-friendly websites. Feel free to reach out — I’d love to discuss your ideas and turn them into reality. And interested in working together or have a question? Send a message and I'll get back to you.</p>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="fa-solid fa-envelope me-2 text-info"></i>mslady2k24@gmail.com</li>
+                        <li class="mb-2"><i class="fa-brands fa-github me-2"></i><a href="http://www.github.com/in/RAFIAULFAT-2007" target="_blank" rel="noopener" class="text-decoration-none">github.com/RAFIAULFAT-2007</a></li>
+                        <li><i class="fa-brands fa-linkedin me-2 text-info"></i><a href="www.linkedin.com/in/ʀᴀꜰɪᴀ-ᴜʟꜰᴀᴛ-a5b25538b" target="_blank" rel="noopener" class="text-decoration-none">linkedin.com/in/ʀᴀꜰɪᴀ-ᴜʟꜰᴀᴛ-a5b25538b</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <form id="contactForm" class="card p-3" novalidate>
+                        <div class="mb-3">
+                            <label for="name" class="form-label visually-hidden">Name</label>
+                            <input id="name" name="name" type="text" class="form-control" placeholder="FULL NAME" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label visually-hidden">Email</label>
+                            <input id="email" name="email" type="email" class="form-control" placeholder="PUT YOUR CORRECT DOMAIN" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label visually-hidden">Message</label>
+                            <textarea id="message" name="message" rows="4" class="form-control" placeholder="PUT YOUR MESSAGE" required></textarea>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <button id="sendBtn" class="btn btn-info me-3" type="submit"><i class="fa-solid fa-paper-plane me-1"></i> Send</button>
+                            <small id="formHint" class="text-muted">Form opens your email client if no backend is configured.</small>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="container">
+        <div class="d-flex justify-content-between align-items-center">
+            <div class="small">© <span id="year"></span> Your Name — Built with HTML, CSS, JS & BOOSTRAP</div>
+            <div>
+                <a class="me-3" href="https://github.com/" target="_blank" rel="noopener"><i class="me-2 fa-brands fa-github text-light"></i></a>
+                <a class="me-3" href="www.linkedin.com/in/ʀᴀꜰɪᴀ-ᴜʟꜰᴀᴛ-a5b25538b" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin me-2 text-info"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Small utilities: set year, reveal animations, animate progress bars, handle contact form via mailto
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        const observers = [];
+        // reveal fade-up elements
+        const reveal = new IntersectionObserver(entries => {
+            entries.forEach(e => {
+                if (e.isIntersecting) e.target.classList.add('show');
+            });
+        }, {
+            threshold: 0.15
+        });
+
+        document.querySelectorAll('.fade-up').forEach(el => reveal.observe(el));
+
+        // animate progress bars once in view
+        const progressObserver = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.querySelectorAll('.progress-bar').forEach(pb => {
+                        const w = pb.getAttribute('data-width') || '60%';
+                        pb.style.width = w;
+                    });
+                    progressObserver.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.2
+        });
+
+        // wrap skills section for observation
+        const skillsSection = document.getElementById('skills');
+        if (skillsSection) progressObserver.observe(skillsSection);
+
+        // Contact form: validate and open mail client (mailto) as fallback
+        const form = document.getElementById('contactForm');
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+            if (!name || !email || !message) {
+                alert('Please complete all fields.');
+                return;
+            }
+            // Prefer mailto (simple) — user can swap to Formspree or backend later
+            const subject = encodeURIComponent(`Inquiry from ${name}`);
+            const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`);
+            window.location.href = `mailto:your.email@example.com?subject=${subject}&body=${body}`;
+        });
+
+        // smooth scroll offset fix for nav (if using anchor links)
+        document.querySelectorAll('a.nav-link[href^="#"]').forEach(a => {
+            a.addEventListener('click', (e) => {
+                e.preventDefault();
+                const id = a.getAttribute('href').slice(1);
+                const el = document.getElementById(id);
+                if (!el) return;
+                const y = el.getBoundingClientRect().top + window.scrollY - 70;
+                window.scrollTo({
+                    top: y,
+                    behavior: 'smooth'
+                });
+                // collapse navbar on mobile
+                const bsCollapse = document.querySelector('.navbar-collapse');
+                if (bsCollapse.classList.contains('show')) {
+                    new bootstrap.Collapse(bsCollapse).toggle();
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
